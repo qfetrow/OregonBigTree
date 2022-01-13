@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */; };
+		FF823FB72790CF1400EF53EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FB62790CF1400EF53EB /* ContentView.swift */; };
+		FF823FB92790CF1500EF53EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF823FB82790CF1500EF53EB /* Assets.xcassets */; };
+		FF823FBC2790CF1500EF53EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF823FBB2790CF1500EF53EB /* Preview Assets.xcassets */; };
+		FF823FC62790CF1500EF53EB /* OregonBigTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FC52790CF1500EF53EB /* OregonBigTreeTests.swift */; };
+		FF823FD02790CF1500EF53EB /* OregonBigTreeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FCF2790CF1500EF53EB /* OregonBigTreeUITests.swift */; };
+		FF823FD22790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FD12790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF823FC22790CF1500EF53EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF823FA92790CF1400EF53EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF823FB02790CF1400EF53EB;
+			remoteInfo = OregonBigTree;
+		};
+		FF823FCC2790CF1500EF53EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF823FA92790CF1400EF53EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF823FB02790CF1400EF53EB;
+			remoteInfo = OregonBigTree;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FF823FB12790CF1400EF53EB /* OregonBigTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OregonBigTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeApp.swift; sourceTree = "<group>"; };
+		FF823FB62790CF1400EF53EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF823FB82790CF1500EF53EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF823FBB2790CF1500EF53EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FF823FC12790CF1500EF53EB /* OregonBigTreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OregonBigTreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF823FC52790CF1500EF53EB /* OregonBigTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeTests.swift; sourceTree = "<group>"; };
+		FF823FCB2790CF1500EF53EB /* OregonBigTreeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OregonBigTreeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF823FCF2790CF1500EF53EB /* OregonBigTreeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeUITests.swift; sourceTree = "<group>"; };
+		FF823FD12790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF823FAE2790CF1400EF53EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF823FBE2790CF1500EF53EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF823FC82790CF1500EF53EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF823FA82790CF1400EF53EB = {
+			isa = PBXGroup;
+			children = (
+				FF823FB32790CF1400EF53EB /* OregonBigTree */,
+				FF823FC42790CF1500EF53EB /* OregonBigTreeTests */,
+				FF823FCE2790CF1500EF53EB /* OregonBigTreeUITests */,
+				FF823FB22790CF1400EF53EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF823FB22790CF1400EF53EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF823FB12790CF1400EF53EB /* OregonBigTree.app */,
+				FF823FC12790CF1500EF53EB /* OregonBigTreeTests.xctest */,
+				FF823FCB2790CF1500EF53EB /* OregonBigTreeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF823FB32790CF1400EF53EB /* OregonBigTree */ = {
+			isa = PBXGroup;
+			children = (
+				FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */,
+				FF823FB62790CF1400EF53EB /* ContentView.swift */,
+				FF823FB82790CF1500EF53EB /* Assets.xcassets */,
+				FF823FBA2790CF1500EF53EB /* Preview Content */,
+			);
+			path = OregonBigTree;
+			sourceTree = "<group>";
+		};
+		FF823FBA2790CF1500EF53EB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FF823FBB2790CF1500EF53EB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FF823FC42790CF1500EF53EB /* OregonBigTreeTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF823FC52790CF1500EF53EB /* OregonBigTreeTests.swift */,
+			);
+			path = OregonBigTreeTests;
+			sourceTree = "<group>";
+		};
+		FF823FCE2790CF1500EF53EB /* OregonBigTreeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF823FCF2790CF1500EF53EB /* OregonBigTreeUITests.swift */,
+				FF823FD12790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift */,
+			);
+			path = OregonBigTreeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF823FB02790CF1400EF53EB /* OregonBigTree */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF823FD52790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTree" */;
+			buildPhases = (
+				FF823FAD2790CF1400EF53EB /* Sources */,
+				FF823FAE2790CF1400EF53EB /* Frameworks */,
+				FF823FAF2790CF1400EF53EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OregonBigTree;
+			productName = OregonBigTree;
+			productReference = FF823FB12790CF1400EF53EB /* OregonBigTree.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF823FC02790CF1500EF53EB /* OregonBigTreeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF823FD82790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTreeTests" */;
+			buildPhases = (
+				FF823FBD2790CF1500EF53EB /* Sources */,
+				FF823FBE2790CF1500EF53EB /* Frameworks */,
+				FF823FBF2790CF1500EF53EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF823FC32790CF1500EF53EB /* PBXTargetDependency */,
+			);
+			name = OregonBigTreeTests;
+			productName = OregonBigTreeTests;
+			productReference = FF823FC12790CF1500EF53EB /* OregonBigTreeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FF823FCA2790CF1500EF53EB /* OregonBigTreeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF823FDB2790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTreeUITests" */;
+			buildPhases = (
+				FF823FC72790CF1500EF53EB /* Sources */,
+				FF823FC82790CF1500EF53EB /* Frameworks */,
+				FF823FC92790CF1500EF53EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF823FCD2790CF1500EF53EB /* PBXTargetDependency */,
+			);
+			name = OregonBigTreeUITests;
+			productName = OregonBigTreeUITests;
+			productReference = FF823FCB2790CF1500EF53EB /* OregonBigTreeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF823FA92790CF1400EF53EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					FF823FB02790CF1400EF53EB = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					FF823FC02790CF1500EF53EB = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = FF823FB02790CF1400EF53EB;
+					};
+					FF823FCA2790CF1500EF53EB = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = FF823FB02790CF1400EF53EB;
+					};
+				};
+			};
+			buildConfigurationList = FF823FAC2790CF1400EF53EB /* Build configuration list for PBXProject "OregonBigTree" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF823FA82790CF1400EF53EB;
+			productRefGroup = FF823FB22790CF1400EF53EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF823FB02790CF1400EF53EB /* OregonBigTree */,
+				FF823FC02790CF1500EF53EB /* OregonBigTreeTests */,
+				FF823FCA2790CF1500EF53EB /* OregonBigTreeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF823FAF2790CF1400EF53EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF823FBC2790CF1500EF53EB /* Preview Assets.xcassets in Resources */,
+				FF823FB92790CF1500EF53EB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF823FBF2790CF1500EF53EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF823FC92790CF1500EF53EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF823FAD2790CF1400EF53EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF823FB72790CF1400EF53EB /* ContentView.swift in Sources */,
+				FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF823FBD2790CF1500EF53EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF823FC62790CF1500EF53EB /* OregonBigTreeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF823FC72790CF1500EF53EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF823FD02790CF1500EF53EB /* OregonBigTreeUITests.swift in Sources */,
+				FF823FD22790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF823FC32790CF1500EF53EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF823FB02790CF1400EF53EB /* OregonBigTree */;
+			targetProxy = FF823FC22790CF1500EF53EB /* PBXContainerItemProxy */;
+		};
+		FF823FCD2790CF1500EF53EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF823FB02790CF1400EF53EB /* OregonBigTree */;
+			targetProxy = FF823FCC2790CF1500EF53EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FF823FD32790CF1500EF53EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF823FD42790CF1500EF53EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF823FD62790CF1500EF53EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OregonBigTree/Preview Content\"";
+				DEVELOPMENT_TEAM = TFTTDGZFFQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qfet.OregonBigTree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF823FD72790CF1500EF53EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"OregonBigTree/Preview Content\"";
+				DEVELOPMENT_TEAM = TFTTDGZFFQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qfet.OregonBigTree;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FF823FD92790CF1500EF53EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TFTTDGZFFQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qfet.OregonBigTreeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OregonBigTree.app/OregonBigTree";
+			};
+			name = Debug;
+		};
+		FF823FDA2790CF1500EF53EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TFTTDGZFFQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qfet.OregonBigTreeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OregonBigTree.app/OregonBigTree";
+			};
+			name = Release;
+		};
+		FF823FDC2790CF1500EF53EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TFTTDGZFFQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qfet.OregonBigTreeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OregonBigTree;
+			};
+			name = Debug;
+		};
+		FF823FDD2790CF1500EF53EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TFTTDGZFFQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = qfet.OregonBigTreeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OregonBigTree;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF823FAC2790CF1400EF53EB /* Build configuration list for PBXProject "OregonBigTree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF823FD32790CF1500EF53EB /* Debug */,
+				FF823FD42790CF1500EF53EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF823FD52790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTree" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF823FD62790CF1500EF53EB /* Debug */,
+				FF823FD72790CF1500EF53EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF823FD82790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTreeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF823FD92790CF1500EF53EB /* Debug */,
+				FF823FDA2790CF1500EF53EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF823FDB2790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTreeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF823FDC2790CF1500EF53EB /* Debug */,
+				FF823FDD2790CF1500EF53EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF823FA92790CF1400EF53EB /* Project object */;
+}
