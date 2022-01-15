@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CF2A9D9B1A76E77BC3F5094 /* Pods_OregonBigTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F90166FC36B0525487F94158 /* Pods_OregonBigTree.framework */; };
+		BAB068265F3D8B1C54F93FD9 /* Pods_OregonBigTreeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5209AF1572E8B2F463E650A2 /* Pods_OregonBigTreeTests.framework */; };
+		C3385B3DDF469B8C4CAFA8F7 /* Pods_OregonBigTree_OregonBigTreeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163B7803E2419923BE18F5AA /* Pods_OregonBigTree_OregonBigTreeUITests.framework */; };
 		FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */; };
 		FF823FB72790CF1400EF53EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FB62790CF1400EF53EB /* ContentView.swift */; };
 		FF823FB92790CF1500EF53EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF823FB82790CF1500EF53EB /* Assets.xcassets */; };
@@ -34,6 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		163B7803E2419923BE18F5AA /* Pods_OregonBigTree_OregonBigTreeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OregonBigTree_OregonBigTreeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FC20E3A95A5394B1112B0F /* Pods-OregonBigTree-OregonBigTreeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OregonBigTree-OregonBigTreeUITests.release.xcconfig"; path = "Target Support Files/Pods-OregonBigTree-OregonBigTreeUITests/Pods-OregonBigTree-OregonBigTreeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5209AF1572E8B2F463E650A2 /* Pods_OregonBigTreeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OregonBigTreeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EF3D61291958B093F3B24E1 /* Pods-OregonBigTreeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OregonBigTreeTests.release.xcconfig"; path = "Target Support Files/Pods-OregonBigTreeTests/Pods-OregonBigTreeTests.release.xcconfig"; sourceTree = "<group>"; };
+		A11FB58BD91EDDA159C32B88 /* Pods-OregonBigTreeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OregonBigTreeTests.debug.xcconfig"; path = "Target Support Files/Pods-OregonBigTreeTests/Pods-OregonBigTreeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A693173FF68D4C649F3C867F /* Pods-OregonBigTree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OregonBigTree.release.xcconfig"; path = "Target Support Files/Pods-OregonBigTree/Pods-OregonBigTree.release.xcconfig"; sourceTree = "<group>"; };
+		AF37927CE861DD4BC83F03FA /* Pods-OregonBigTree-OregonBigTreeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OregonBigTree-OregonBigTreeUITests.debug.xcconfig"; path = "Target Support Files/Pods-OregonBigTree-OregonBigTreeUITests/Pods-OregonBigTree-OregonBigTreeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DE62B66F9CF26845525EA252 /* Pods-OregonBigTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OregonBigTree.debug.xcconfig"; path = "Target Support Files/Pods-OregonBigTree/Pods-OregonBigTree.debug.xcconfig"; sourceTree = "<group>"; };
+		F90166FC36B0525487F94158 /* Pods_OregonBigTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OregonBigTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF823FB12790CF1400EF53EB /* OregonBigTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OregonBigTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeApp.swift; sourceTree = "<group>"; };
 		FF823FB62790CF1400EF53EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF2A9D9B1A76E77BC3F5094 /* Pods_OregonBigTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAB068265F3D8B1C54F93FD9 /* Pods_OregonBigTreeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,12 +79,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3385B3DDF469B8C4CAFA8F7 /* Pods_OregonBigTree_OregonBigTreeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6C2F82F1C00D4C88B6D25E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE62B66F9CF26845525EA252 /* Pods-OregonBigTree.debug.xcconfig */,
+				A693173FF68D4C649F3C867F /* Pods-OregonBigTree.release.xcconfig */,
+				AF37927CE861DD4BC83F03FA /* Pods-OregonBigTree-OregonBigTreeUITests.debug.xcconfig */,
+				39FC20E3A95A5394B1112B0F /* Pods-OregonBigTree-OregonBigTreeUITests.release.xcconfig */,
+				A11FB58BD91EDDA159C32B88 /* Pods-OregonBigTreeTests.debug.xcconfig */,
+				5EF3D61291958B093F3B24E1 /* Pods-OregonBigTreeTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC5DD4210180F639C9C6454B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F90166FC36B0525487F94158 /* Pods_OregonBigTree.framework */,
+				163B7803E2419923BE18F5AA /* Pods_OregonBigTree_OregonBigTreeUITests.framework */,
+				5209AF1572E8B2F463E650A2 /* Pods_OregonBigTreeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FF823FA82790CF1400EF53EB = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +117,8 @@
 				FF823FC42790CF1500EF53EB /* OregonBigTreeTests */,
 				FF823FCE2790CF1500EF53EB /* OregonBigTreeUITests */,
 				FF823FB22790CF1400EF53EB /* Products */,
+				C6C2F82F1C00D4C88B6D25E3 /* Pods */,
+				DC5DD4210180F639C9C6454B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +175,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF823FD52790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTree" */;
 			buildPhases = (
+				62CFF17FCB14D6F96A75BFB9 /* [CP] Check Pods Manifest.lock */,
 				FF823FAD2790CF1400EF53EB /* Sources */,
 				FF823FAE2790CF1400EF53EB /* Frameworks */,
 				FF823FAF2790CF1400EF53EB /* Resources */,
@@ -151,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF823FD82790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTreeTests" */;
 			buildPhases = (
+				452B26B25097624D116DCC83 /* [CP] Check Pods Manifest.lock */,
 				FF823FBD2790CF1500EF53EB /* Sources */,
 				FF823FBE2790CF1500EF53EB /* Frameworks */,
 				FF823FBF2790CF1500EF53EB /* Resources */,
@@ -169,6 +212,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF823FDB2790CF1500EF53EB /* Build configuration list for PBXNativeTarget "OregonBigTreeUITests" */;
 			buildPhases = (
+				110F6DC68AA38D0E701DF55A /* [CP] Check Pods Manifest.lock */,
 				FF823FC72790CF1500EF53EB /* Sources */,
 				FF823FC82790CF1500EF53EB /* Frameworks */,
 				FF823FC92790CF1500EF53EB /* Resources */,
@@ -251,6 +295,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		110F6DC68AA38D0E701DF55A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OregonBigTree-OregonBigTreeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		452B26B25097624D116DCC83 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OregonBigTreeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		62CFF17FCB14D6F96A75BFB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OregonBigTree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FF823FAD2790CF1400EF53EB /* Sources */ = {
@@ -413,6 +526,7 @@
 		};
 		FF823FD62790CF1500EF53EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE62B66F9CF26845525EA252 /* Pods-OregonBigTree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -442,6 +556,7 @@
 		};
 		FF823FD72790CF1500EF53EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A693173FF68D4C649F3C867F /* Pods-OregonBigTree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,6 +586,7 @@
 		};
 		FF823FD92790CF1500EF53EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A11FB58BD91EDDA159C32B88 /* Pods-OregonBigTreeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -496,6 +612,7 @@
 		};
 		FF823FDA2790CF1500EF53EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EF3D61291958B093F3B24E1 /* Pods-OregonBigTreeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -521,6 +638,7 @@
 		};
 		FF823FDC2790CF1500EF53EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF37927CE861DD4BC83F03FA /* Pods-OregonBigTree-OregonBigTreeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -544,6 +662,7 @@
 		};
 		FF823FDD2790CF1500EF53EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39FC20E3A95A5394B1112B0F /* Pods-OregonBigTree-OregonBigTreeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
