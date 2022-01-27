@@ -35,6 +35,7 @@ struct Measure: Hashable, Codable {
     let RelatingTo: String
     let CurrentLocation: String
     let CurrentCommitteeCode: String
+    let PrefixMeaning: String
     
 }
 

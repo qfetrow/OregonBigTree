@@ -38,16 +38,15 @@ class MeasureData: ObservableObject {
     }
 }
 
-struct MeasureView: View {
+struct MeasureListView: View {
     @StateObject var dataModel = MeasureData()
+    @State var isViewingMeasure: Bool = false
     @State var measuretoggles: [Bool] = [false]
-    var index = 0
+    @State var index: Int = 0
     var body: some View {
         List {
             ForEach(dataModel.measures, id: \.self) { measure in
                     HStack (alignment: .top){
-                        // The images aren't provided in the api, so I created links to them myself using their websites,
-                        // some of the geezers put whitespace in their URL's so I removed it
                         Image(systemName: "doc.plaintext.fill")
                             .resizable()
                             .scaledToFit()
@@ -55,19 +54,25 @@ struct MeasureView: View {
                         VStack (alignment: .leading) {
                             Text("Measure "+String(measure.MeasureNumber))
                                 .bold()
-                            Text(measure.RelatingTo)
-                            if (measuretoggles[index] == true) {
+                            if (measuretoggles[index] == false) {
+                                Text(measure.RelatingTo)
+                            }
+                            else if (measuretoggles[index] == true) {
                                 Text(measure.CatchLine)
-                                    .bold()
-                                Text(measure.CurrentLocation)
                                 Text(measure.MeasureSummary)
                                     .scaledToFit()
                                     .hidden()
                             }
-                        }.padding(4)
+                            Text(measure.PrefixMeaning)
+                                .foregroundColor(.gray)
+                        }.padding(.leading, 4)
                     }.padding(3)
                     .onTapGesture {
                         withAnimation {self.measuretoggles[index].toggle()}
+                    }
+                    .onAppear {
+                        measuretoggles.append(false)
+                        index = index + 1
                     }
             }
         }
