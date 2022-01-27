@@ -11,7 +11,7 @@ import SwiftUI
 struct OregonBigTreeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ViewControl()
         }
     }
 }
