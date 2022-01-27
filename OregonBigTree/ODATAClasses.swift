@@ -10,7 +10,7 @@ import Foundation
 // So this parses the returned object to only get the needed information
 
 struct InitialODATA: Codable {
-    let value: [Legislator]
+    let value: [Measure]
 }
 
 // The names are dependent on OData values so do not change them
@@ -28,8 +28,13 @@ struct Legislator: Hashable, Codable {
 }
 
 struct Measure: Hashable, Codable {
-    let MeasureNumber: String?
-    let CatchLine: String?
-    let MeasureSummary: String?
+    let MeasurePrefix: String
+    let MeasureNumber: Int
+    let CatchLine: String
+    let MeasureSummary: String
+    let RelatingTo: String
+    let CurrentLocation: String
+    let CurrentCommitteeCode: String
+    
 }
 

@@ -15,6 +15,10 @@ struct ViewControl: View {
                 Image(systemName: "person.circle")
                 Text("Your Reps")
             }
+            MeasureView().tabItem() {
+                Image(systemName: "doc.plaintext")
+                Text("Measures")
+            }
         }
     }
 }
