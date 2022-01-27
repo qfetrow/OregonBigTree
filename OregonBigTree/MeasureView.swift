@@ -38,6 +38,54 @@ class MeasureData: ObservableObject {
     }
 }
 
+struct SingleMeasureView: View {
+    @State var measure: Measure
+    @State var fullview = false
+    var body: some View {
+        HStack (alignment: .center){
+            if (fullview == false) {
+                Image(systemName: "doc.plaintext.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:60, height:60)
+            }
+            VStack (alignment: .leading) {
+                if (fullview == false) {
+                    Text("Measure "+String(measure.MeasureNumber))
+                        .bold()
+                    Text(measure.RelatingTo)
+                }
+                else if (fullview == true) {
+                    Text("Measure "+String(measure.MeasureNumber))
+                        .bold()
+                        .padding(.bottom,1)
+                    VStack(alignment: .center) {
+                        Text("Measure Summary")
+                            .bold()
+                            .padding(0)
+                            .font(.system(size:15))
+                        ScrollView {
+                            // Really janky reformatting with this haha
+                            Text(measure.MeasureSummary.removeTabs().withReplacedCharacters("\n", by: "\n\n"))
+                                .padding(10)
+                        }
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.gray, lineWidth: 1)
+                        )
+                        .frame(minHeight:100, maxHeight:350)
+                    }
+                }
+                Text(measure.PrefixMeaning)
+                    .foregroundColor(.gray)
+            }.padding(.leading, 4)
+        }.padding(3)
+        .onTapGesture {
+            withAnimation {fullview.toggle()}
+        }
+    }
+}
+
 struct MeasureListView: View {
     @StateObject var dataModel = MeasureData()
     @State var isViewingMeasure: Bool = false
@@ -46,34 +94,7 @@ struct MeasureListView: View {
     var body: some View {
         List {
             ForEach(dataModel.measures, id: \.self) { measure in
-                    HStack (alignment: .top){
-                        Image(systemName: "doc.plaintext.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width:50, height:50)
-                        VStack (alignment: .leading) {
-                            Text("Measure "+String(measure.MeasureNumber))
-                                .bold()
-                            if (measuretoggles[index] == false) {
-                                Text(measure.RelatingTo)
-                            }
-                            else if (measuretoggles[index] == true) {
-                                Text(measure.CatchLine)
-                                Text(measure.MeasureSummary)
-                                    .scaledToFit()
-                                    .hidden()
-                            }
-                            Text(measure.PrefixMeaning)
-                                .foregroundColor(.gray)
-                        }.padding(.leading, 4)
-                    }.padding(3)
-                    .onTapGesture {
-                        withAnimation {self.measuretoggles[index].toggle()}
-                    }
-                    .onAppear {
-                        measuretoggles.append(false)
-                        index = index + 1
-                    }
+                SingleMeasureView(measure: measure)
             }
         }
         .navigationTitle("Measures")

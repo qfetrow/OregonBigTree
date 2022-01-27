@@ -16,6 +16,9 @@ extension String {
     func removeWhitespace() -> String {
         return components(separatedBy: .whitespaces).joined()
     }
+    func removeTabs() -> String {
+        return self.filter{ !"\t".contains($0) }
+    }
     // Used to replace whitespace with "%20" for APi interaction
     func withReplacedCharacters(_ oldChar: String, by newChar: String) -> String {
         let newStr = self.replacingOccurrences(of: oldChar, with: newChar, options: .literal, range: nil)
