@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FF2C05712799DE9A006CC081 /* ODATAClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2C05702799DE9A006CC081 /* ODATAClasses.swift */; };
 		FF2C05732799DED3006CC081 /* GCivicClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2C05722799DED3006CC081 /* GCivicClasses.swift */; };
+		FF4DE46827A9B1770055A111 /* RepStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4DE46727A9B1770055A111 /* RepStore.swift */; };
 		FF61BC26279B2853002A6C9B /* RepsByAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61BC25279B2853002A6C9B /* RepsByAddress.swift */; };
 		FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */; };
 		FF823FB92790CF1500EF53EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF823FB82790CF1500EF53EB /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 		FF823FD22790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF823FD12790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift */; };
 		FF83B8C527A2196E006DFFF2 /* ViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B8C427A2196E006DFFF2 /* ViewControl.swift */; };
 		FF83B8C727A315AD006DFFF2 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B8C627A315AD006DFFF2 /* MeasureView.swift */; };
+		FF83B8C927A45F6C006DFFF2 /* MiscStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B8C827A45F6C006DFFF2 /* MiscStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,7 @@
 /* Begin PBXFileReference section */
 		FF2C05702799DE9A006CC081 /* ODATAClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODATAClasses.swift; sourceTree = "<group>"; };
 		FF2C05722799DED3006CC081 /* GCivicClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCivicClasses.swift; sourceTree = "<group>"; };
+		FF4DE46727A9B1770055A111 /* RepStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepStore.swift; sourceTree = "<group>"; };
 		FF61BC25279B2853002A6C9B /* RepsByAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsByAddress.swift; sourceTree = "<group>"; };
 		FF823FB12790CF1400EF53EB /* OregonBigTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OregonBigTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF823FB42790CF1400EF53EB /* OregonBigTreeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeApp.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		FF823FD12790CF1500EF53EB /* OregonBigTreeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OregonBigTreeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF83B8C427A2196E006DFFF2 /* ViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControl.swift; sourceTree = "<group>"; };
 		FF83B8C627A315AD006DFFF2 /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
+		FF83B8C827A45F6C006DFFF2 /* MiscStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 		FF823FB32790CF1400EF53EB /* OregonBigTree */ = {
 			isa = PBXGroup;
 			children = (
+				FF83B8C827A45F6C006DFFF2 /* MiscStyles.swift */,
 				FF83B8C427A2196E006DFFF2 /* ViewControl.swift */,
 				FF83B8C627A315AD006DFFF2 /* MeasureView.swift */,
 				FF61BC25279B2853002A6C9B /* RepsByAddress.swift */,
@@ -118,6 +123,7 @@
 				FF2C05722799DED3006CC081 /* GCivicClasses.swift */,
 				FF823FB82790CF1500EF53EB /* Assets.xcassets */,
 				FF823FBA2790CF1500EF53EB /* Preview Content */,
+				FF4DE46727A9B1770055A111 /* RepStore.swift */,
 			);
 			path = OregonBigTree;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 				FF83B8C527A2196E006DFFF2 /* ViewControl.swift in Sources */,
 				FF2C05712799DE9A006CC081 /* ODATAClasses.swift in Sources */,
 				FF61BC26279B2853002A6C9B /* RepsByAddress.swift in Sources */,
+				FF4DE46827A9B1770055A111 /* RepStore.swift in Sources */,
+				FF83B8C927A45F6C006DFFF2 /* MiscStyles.swift in Sources */,
 				FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

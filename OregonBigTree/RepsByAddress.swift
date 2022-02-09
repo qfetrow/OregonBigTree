@@ -7,25 +7,9 @@
 //
 
 import Foundation
-
-
 import SwiftUI
 
-extension String {
-    // Just a function for trimming whitespace
-    func removeWhitespace() -> String {
-        return components(separatedBy: .whitespaces).joined()
-    }
-    func removeTabs() -> String {
-        return self.filter{ !"\t".contains($0) }
-    }
-    // Used to replace whitespace with "%20" for APi interaction
-    func withReplacedCharacters(_ oldChar: String, by newChar: String) -> String {
-        let newStr = self.replacingOccurrences(of: oldChar, with: newChar, options: .literal, range: nil)
-        return newStr
-    }
-}
-
+var repMails: [String] = ["",""]
 
 struct URLImage: View {
     // Class to display representative photo
@@ -105,46 +89,41 @@ class DataModel: ObservableObject {
 }
 
 struct RepsByAddressView: View {
+    @StateObject var repStore = RepStore()
     
     // These variables are used to build the address
     @State var fulladdress: String = ""
     @State var street: String = ""
     @State var city: String = ""
     @State var zip: String = ""
-    var fullAddress: String = ""
+    @AppStorage("fulladdress") var fullAddress: String = ""
     
     // These variables decide what is being displayed
+    @State var loadedReps: [Representative] = []
+    @State var repsLoaded: Bool = false
     @State var addressRecieved: Bool = false
     @State var showingAddressForm: Bool = false
     @StateObject var dataModel = DataModel()
     
+    @State var repcounter = 0
+    
     var body: some View {
         NavigationView {
-            if (addressRecieved == false) { // Need to collect address
-                if (showingAddressForm == false) { //
-                    VStack {
-                        Text("Enter your Address to display your local Representatives")
-                        Button("Enter Address") {
-                            showingAddressForm = true
+            if (fullAddress == "") { // Need to collect address
+                    // This is the address Form for the user
+                NavigationView {
+                    Form {
+                        TextField("Street Address", text: $street)
+                        TextField("City", text: $city)
+                        TextField("Zip Code", text: $zip)
+                        Button("Confirm") {
+                            self.street = self.street
+                            self.fullAddress = self.street.withReplacedCharacters(" ", by: "%20")+"%20"+self.city+"%20"+"OR%20"+self.zip
+                            print("Address! -------------------------- "+self.fulladdress)
+                            addressRecieved = true
                         }
                     }
-                } else {
-                    // This is the Email Form for the user
-                    NavigationView {
-                        Form {
-                            TextField("Street Address", text: $street)
-                            TextField("City", text: $city)
-                            TextField("Zip Code", text: $zip)
-                            Button("Confirm") {
-                                self.street = self.street
-                                self.fulladdress = self.street.withReplacedCharacters(" ", by: "%20")+"%20"+self.city+"%20"+"OR%20"+self.zip
-                                print("Address! -------------------------- "+self.fulladdress)
-                                dataModel.address = self.fulladdress
-                                addressRecieved = true
-                            }
-                        }
-                        .navigationBarTitle("Address")
-                    }
+                    .navigationBarTitle("Your Address")
                 }
             } else {
                     // Shows the representatives
@@ -164,12 +143,20 @@ struct RepsByAddressView: View {
                                                 Text(unwrapped_emails[0])
                                             }
                                         }.padding(4)
+                                            .onAppear {
+                                                repMails[repcounter] = legislator.emails?[0] ?? ""
+                                                repcounter = (repcounter + 1)%2
+                                            }
                                     }.padding(3)
                             }
+                        }
+                        Button("Change Address") {
+                            self.fullAddress = ""
                         }
                     }
                     .navigationTitle("Your Representatives")
                     .onAppear {
+                        dataModel.address = self.fullAddress
                         dataModel.fetch()
                     }
                 }

@@ -9,12 +9,17 @@ import SwiftUI
 
 class MeasureData: ObservableObject {
     // This reads all measure data from the api into measure objects
+    private let committeecode: String
     @Published var measures: [Measure] = [] // Update each time the legislator data is updated
+    
+    init(commitcode: String) {
+        self.committeecode = commitcode
+    }
     
     func fetch() {
         // This URL is super complicated, but it's calling '$filter' to request only legislators that are serving
         // in the current session
-        guard let url = URL(string: "https://api.oregonlegislature.gov/odata/odataservice.svc/Measures?$filter=CurrentCommitteeCode%20eq%20%27SEE%27&$format=json") else {
+        guard let url = URL(string: "https://api.oregonlegislature.gov/odata/odataservice.svc/Measures?$filter=CurrentCommitteeCode%20eq%20%27\(committeecode)%27&$format=json") else {
                 return
             }
         
@@ -39,6 +44,7 @@ class MeasureData: ObservableObject {
 }
 
 struct SingleMeasureView: View {
+    @State private var presentmail = true
     @State var measure: Measure
     @State var fullview = false
     var body: some View {
@@ -74,6 +80,27 @@ struct SingleMeasureView: View {
                                 .stroke(Color.gray, lineWidth: 1)
                         )
                         .frame(minHeight:100, maxHeight:350)
+                        Text(measure.CurrentLocation)
+                        HStack {
+                            Button("View Document") {
+                                
+                            }
+                            .buttonStyle(GrowingButton())
+                            
+                            Button("Email Reps") {
+                                var subject = "Thoughts about Measure "
+                                subject += String(measure.MeasureNumber)
+                                let email = "foo@bar.com"
+                                if let url = URL(string: "mailto:\(email)?subject=\(subject)") {
+                                  if #available(iOS 10.0, *) {
+                                    UIApplication.shared.open(url)
+                                  } else {
+                                    UIApplication.shared.openURL(url)
+                                  }
+                                }
+                            }
+                            .buttonStyle(GrowingButton())
+                        }
                     }
                 }
                 Text(measure.PrefixMeaning)
@@ -87,7 +114,7 @@ struct SingleMeasureView: View {
 }
 
 struct MeasureListView: View {
-    @StateObject var dataModel = MeasureData()
+    @StateObject var dataModel = MeasureData(commitcode: "SEE")
     @State var isViewingMeasure: Bool = false
     @State var measuretoggles: [Bool] = [false]
     @State var index: Int = 0

@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 
+var Gaddress = "foo@bar.com"
 struct ViewControl: View {
     var body: some View {
         TabView {
