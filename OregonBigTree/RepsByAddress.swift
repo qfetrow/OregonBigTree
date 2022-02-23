@@ -9,7 +9,43 @@
 import Foundation
 import SwiftUI
 
-var repMails: [String] = ["",""]
+var emptyRep = RepData(name: "", party: "", email: "", office: "")
+var GlobalReps: [RepData] = [emptyRep, emptyRep]
+
+struct RepView: View {
+    let legislator: Representative
+    let position: String
+    
+    var body: some View {
+        HStack (alignment: .top){
+            // The images aren't provided in the api, so I created links to them myself using their websites,
+            // some of the geezers put whitespace in their URL's so I removed it
+            URLImage(urlString: legislator.urls[0].removeWhitespace()+"/PublishingImages/member_photo.jpg")
+            VStack (alignment: .leading) {
+                Text(legislator.name)
+                    .bold()
+                Text(position)
+                Text(legislator.party)
+                if let unwrapped_emails = legislator.emails{
+                    ForEach(unwrapped_emails, id: \.self) { emailad in
+                        Text(emailad)
+                            .scaledToFit()
+                            .minimumScaleFactor(0.01)
+                    }
+                }
+                if let unwrapped_phones = legislator.phones{
+                    ForEach(unwrapped_phones, id: \.self) { phone in
+                        Text(phone)
+                            .scaledToFit()
+                            .minimumScaleFactor(0.01)
+                            .font(.subheadline)
+                    }
+                }
+            }
+            .padding(8)
+        }
+    }
+}
 
 struct URLImage: View {
     // Class to display representative photo
@@ -89,7 +125,6 @@ class DataModel: ObservableObject {
 }
 
 struct RepsByAddressView: View {
-    @StateObject var repStore = RepStore()
     
     // These variables are used to build the address
     @State var fulladdress: String = ""
@@ -123,41 +158,31 @@ struct RepsByAddressView: View {
                             addressRecieved = true
                         }
                     }
-                    .navigationBarTitle("Your Address")
+                    .navigationBarTitle("Your Address", displayMode: .inline)
                 }
             } else {
                     // Shows the representatives
                     List{
                         ForEach(dataModel.offices, id: \.self) { office in
                                 if (office.name == "OR State Senator" || office.name == "OR State Representative") { // Only show senator and representative
+                                    let position = office.name
                                     let legislator = dataModel.representatives[office.officialIndices[0]]
-                                    HStack (alignment: .top){
-                                        // The images aren't provided in the api, so I created links to them myself using their websites,
-                                        // some of the geezers put whitespace in their URL's so I removed it
-                                        URLImage(urlString: legislator.urls[0].removeWhitespace()+"/PublishingImages/member_photo.jpg")
-                                        VStack (alignment: .leading) {
-                                            Text(legislator.name)
-                                                .bold()
-                                            Text(legislator.party)
-                                            if let unwrapped_emails = legislator.emails{
-                                                Text(unwrapped_emails[0])
-                                            }
-                                        }.padding(4)
-                                            .onAppear {
-                                                repMails[repcounter] = legislator.emails?[0] ?? ""
-                                                repcounter = (repcounter + 1)%2
-                                            }
-                                    }.padding(3)
+                                    RepView(legislator: legislator, position: position)
+                                        .onAppear {
+                                            GlobalReps[repcounter] = RepData(name: legislator.name, party: legislator.party, email: legislator.emails?[0] ?? "", office: "")
+                                            repcounter = (repcounter + 1)%2
+                                        }
+                                }
                             }
                         }
-                        Button("Change Address") {
-                            self.fullAddress = ""
-                        }
-                    }
-                    .navigationTitle("Your Representatives")
+                    .listStyle(PlainListStyle())
+                    .navigationBarTitle("Your Representatives", displayMode: .inline)
                     .onAppear {
                         dataModel.address = self.fullAddress
                         dataModel.fetch()
+                    }
+                    Button("Change Address") {
+                        self.fullAddress = ""
                     }
                 }
             }

@@ -8,7 +8,6 @@
 import SwiftUI
 import Foundation
 
-var Gaddress = "foo@bar.com"
 struct ViewControl: View {
     var body: some View {
         TabView {
@@ -16,9 +15,13 @@ struct ViewControl: View {
                 Image(systemName: "person.circle")
                 Text("Your Reps")
             }
-            MeasureListView().tabItem() {
+            CommitteeChoice().tabItem() {
                 Image(systemName: "doc.plaintext")
                 Text("Measures")
+            }
+            FloorView().tabItem() {
+                Image(systemName: "calendar")
+                Text("Votes Today")
             }
         }
     }

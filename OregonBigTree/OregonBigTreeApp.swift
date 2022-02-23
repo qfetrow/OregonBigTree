@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
+
 struct OregonBigTreeApp: App {
     var body: some Scene {
         WindowGroup {
             ViewControl()
+                .accentColor(.green)
         }
     }
 }

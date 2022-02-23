@@ -6,6 +6,13 @@
 
 import Foundation
 
+struct RepData: Codable {
+    let name: String
+    let party: String
+    let email: String
+    let office: String
+}
+
 struct InitialGoogle: Codable {
     let offices: [Office]
     let officials: [Representative]
