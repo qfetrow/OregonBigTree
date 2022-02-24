@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF172F4427C8027600FD5534 /* JSonHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF172F4327C8027500FD5534 /* JSonHandler.swift */; };
 		FF2C05712799DE9A006CC081 /* ODATAClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2C05702799DE9A006CC081 /* ODATAClasses.swift */; };
 		FF2C05732799DED3006CC081 /* GCivicClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2C05722799DED3006CC081 /* GCivicClasses.swift */; };
 		FF61BC26279B2853002A6C9B /* RepsByAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF61BC25279B2853002A6C9B /* RepsByAddress.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FF172F4327C8027500FD5534 /* JSonHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSonHandler.swift; sourceTree = "<group>"; };
 		FF2C05702799DE9A006CC081 /* ODATAClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ODATAClasses.swift; sourceTree = "<group>"; };
 		FF2C05722799DED3006CC081 /* GCivicClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCivicClasses.swift; sourceTree = "<group>"; };
 		FF61BC25279B2853002A6C9B /* RepsByAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsByAddress.swift; sourceTree = "<group>"; };
@@ -122,6 +120,7 @@
 		FF823FB32790CF1400EF53EB /* OregonBigTree */ = {
 			isa = PBXGroup;
 			children = (
+				FFF7E8F427C7685000D8799E /* MailView.swift */,
 				FFF7E8EC27C038F400D8799E /* CommitteeChoice.swift */,
 				FFF7E8EE27C5882A00D8799E /* FloorAgenda.swift */,
 				FFE321FB27B49B1500BB1BFF /* MeasureHistory.swift */,
@@ -134,8 +133,6 @@
 				FF2C05722799DED3006CC081 /* GCivicClasses.swift */,
 				FF823FB82790CF1500EF53EB /* Assets.xcassets */,
 				FF823FBA2790CF1500EF53EB /* Preview Content */,
-				FFF7E8F427C7685000D8799E /* MailView.swift */,
-				FF172F4327C8027500FD5534 /* JSonHandler.swift */,
 			);
 			path = OregonBigTree;
 			sourceTree = "<group>";
@@ -303,7 +300,6 @@
 				FF83B8C527A2196E006DFFF2 /* ViewControl.swift in Sources */,
 				FFE321FC27B49B1500BB1BFF /* MeasureHistory.swift in Sources */,
 				FF2C05712799DE9A006CC081 /* ODATAClasses.swift in Sources */,
-				FF172F4427C8027600FD5534 /* JSonHandler.swift in Sources */,
 				FF61BC26279B2853002A6C9B /* RepsByAddress.swift in Sources */,
 				FF83B8C927A45F6C006DFFF2 /* MiscStyles.swift in Sources */,
 				FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */,
