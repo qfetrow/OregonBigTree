@@ -5,6 +5,7 @@
 //  Created by Quinn Fetrow on 1/27/22.
 //
 
+import MessageUI
 import SwiftUI
 import Foundation
 
@@ -199,32 +200,17 @@ struct ExpandedMeasureView: View {
                         }
                     }
                 }
-                Button("Email House Representative") {
-                    let subject = "Thoughts about \(measure.MeasurePrefix) \(measure.MeasureNumber)"
-                    let message = "Representative \(GlobalReps[0].name),\n I am a constituent of your district writing to indicate that I *SUPPORT/DO NOT SUPPORT* \(measure.MeasurePrefix) \(measure.MeasureNumber), \(measure.RelatingTo)\n\n<*EXPLAIN REASONING/RESEARCH DONE*>\n\nSincerely,\n<*YOUR NAME*>\n<*YOUR ADDRESS*>\n<*YOUR PHONE NUMBER*>"
-                    print(message)
-                    if let url = URL(string: "mailto:\(GlobalReps[0].email)?subject=\(subject)") {
-                      if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url)
-                      } else {
-                        UIApplication.shared.openURL(url)
-                      }
-                    }
+                NavigationLink {
+                    MailSetUp(legid: "Representative \(GlobalReps[0].name)", recipiented: GlobalReps[0].email, prefix: measure.MeasurePrefix, measurenumber: measure.MeasureNumber, relatingto: measure.RelatingTo)
+                } label: {
+                    Text("Email House Representative")
                 }
-                .buttonStyle(RoundedRectangleButtonStyle())
-                Button("Email Senator") {
-                    let subject = "Thoughts about \(measure.MeasurePrefix) \(measure.MeasureNumber)"
-                    let message = "Senator \(GlobalReps[1].name),\n\nI am a constituent of your district writing to indicate that I *SUPPORT/DO NOT SUPPORT* \(measure.MeasurePrefix): \(measure.MeasureNumber), \(measure.RelatingTo)\n\n<*EXPLAIN REASONING/RESEARCH DONE*>\n\nSincerely,\n<*YOUR NAME*>\n<*YOUR ADDRESS*>\n<*YOUR PHONE NUMBER*>"
-                    print(message)
-                    if let url = URL(string: "mailto:\(GlobalReps[1].email)?subject=\(subject)") {
-                      if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url)
-                      } else {
-                        UIApplication.shared.openURL(url)
-                      }
-                    }
+                NavigationLink {
+                    MailSetUp(legid: "Senator \(GlobalReps[1].name)", recipiented: GlobalReps[1].email, prefix: measure.MeasurePrefix, measurenumber: measure.MeasureNumber, relatingto: measure.RelatingTo)
+                } label: {
+                    Text("Email Senator")
                 }
-                .buttonStyle(RoundedRectangleButtonStyle())
+                
             }.listStyle(PlainListStyle())
         }
         .onAppear() {

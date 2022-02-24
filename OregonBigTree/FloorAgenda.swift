@@ -102,10 +102,16 @@ struct FloorView: View {
                         .bold()
                         .foregroundColor(blue)) {
                 ForEach(fdata.houseitems, id: \.self) { agitem in
-                    VStack (alignment: .leading){
-                        Text(agitem.OrderOfBusiness)
-                        
-                        Text(verbatim: "\(agitem.MeasurePrefix)\(agitem.MeasureNumber)")
+                    NavigationLink {
+                        if let measured = measuregetter(mprefix:agitem.MeasurePrefix, mnumber: agitem.MeasureNumber) {
+                            ExpandedMeasureView(measure: measured)
+                        }
+                    } label: {
+                        VStack (alignment: .leading){
+                            Text(agitem.OrderOfBusiness)
+                            
+                            Text(verbatim: "\(agitem.MeasurePrefix)\(agitem.MeasureNumber)")
+                        }
                     }
                 }
             }

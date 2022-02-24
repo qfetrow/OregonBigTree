@@ -98,17 +98,56 @@ class DataModel: ObservableObject {
     func fetch() {
         // This URL is super complicated, but it's calling '$filter' to request only legislators that are serving
         // in the current session
+        let fm = FileManager.default
+        let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+        if let urld = urls.first {
+            var fileURL = urld.appendingPathComponent("legislators")
+            fileURL = fileURL.appendingPathExtension("json")
+            let url = fileURL
+            do {
+                let data = try? Data(contentsOf: url)
+                let initial = try JSONDecoder().decode(InitialGoogle.self, from: data!) // fills 'legislators' with data
+                DispatchQueue.main.async {
+                    self.representatives = initial.officials
+                    self.offices = initial.offices
+                }
+            } catch {
+                print("URL Problem, getting from Google")
+                self.fromGoogle()
+                return
+            }
+        } else {
+            print("URL not found")
+            self.fromGoogle()
+            return
+        }
+    }
+            
+    func fromGoogle() {
         guard let url = URL(string: "https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyCvxPNqliq6JpAqabGtZC2cWpTSzX69WW8&?level=administrativeArea1&roles=legislatorLowerBody&roles=legislatorUpperBody&address="+self.address) else {
                 print("https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyCvxPNqliq6JpAqabGtZC2cWpTSzX69WW8&?level=administrativeArea1&roles=legislatorLowerBody&roles=legislatorUpperBody&address="+self.address)
                 return
             }
+
+            
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, _,
             error in
             guard let data = data, error == nil else {
                 return // no data
             }
-
+            do {
+                let fm = FileManager.default
+                let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+                if let urld = urls.first {
+                    var fileURL = urld.appendingPathComponent("legislators")
+                    fileURL = fileURL.appendingPathExtension("json")
+                    try data.write(to: fileURL, options: [])
+                }
+            }
+            catch {
+                print(error)
+            }
             do {
                 let initial = try JSONDecoder().decode(InitialGoogle.self, from: data) // fills 'legislators' with data
                 DispatchQueue.main.async {
@@ -143,25 +182,26 @@ struct RepsByAddressView: View {
     @State var repcounter = 0
     
     var body: some View {
-        NavigationView {
+            NavigationView {
             if (fullAddress == "") { // Need to collect address
                     // This is the address Form for the user
-                NavigationView {
+                VStack (alignment: .leading){
                     Form {
-                        TextField("Street Address", text: $street)
-                        TextField("City", text: $city)
-                        TextField("Zip Code", text: $zip)
-                        Button("Confirm") {
-                            self.street = self.street
-                            self.fullAddress = self.street.withReplacedCharacters(" ", by: "%20")+"%20"+self.city+"%20"+"OR%20"+self.zip
-                            print("Address! -------------------------- "+self.fulladdress)
-                            addressRecieved = true
+                        Section( footer: Text("Enter your address to view your local legislators.  Your address will be shared with the Google Civic Information API to return your Representatives")) {
+                            TextField("Street Address", text: $street)
+                            TextField("City", text: $city)
+                            TextField("Zip Code", text: $zip)
+                            Button("Confirm") {
+                                self.street = self.street
+                                self.fullAddress = self.street.withReplacedCharacters(" ", by: "%20")+"%20"+self.city+"%20"+"OR%20"+self.zip
+                                addressRecieved = true
+                            }
                         }
                     }
-                    .navigationBarTitle("Your Address", displayMode: .inline)
                 }
+                .navigationBarTitle("Your Address", displayMode: .large)
             } else {
-                    // Shows the representatives
+                VStack {
                     List{
                         ForEach(dataModel.offices, id: \.self) { office in
                                 if (office.name == "OR State Senator" || office.name == "OR State Representative") { // Only show senator and representative
@@ -173,18 +213,36 @@ struct RepsByAddressView: View {
                                             repcounter = (repcounter + 1)%2
                                         }
                                 }
-                            }
                         }
+                    }
                     .listStyle(PlainListStyle())
-                    .navigationBarTitle("Your Representatives", displayMode: .inline)
-                    .onAppear {
-                        dataModel.address = self.fullAddress
-                        dataModel.fetch()
+                    Spacer()
+                    VStack {
+                        Button("Change Address") {
+                            do {
+                                let nullstring = " ".data(using: .ascii)
+                                let fm = FileManager.default
+                                let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+                                if let urld = urls.first {
+                                    var fileURL = urld.appendingPathComponent("legislators")
+                                    fileURL = fileURL.appendingPathExtension("json")
+                                    try nullstring?.write(to: fileURL, options: [])
+                                }
+                            } catch {
+                                print("Bad news")
+                            }
+                            self.fullAddress = ""
+                        }
+                        .padding(15)
+                        .buttonStyle( RoundedRectangleButtonStyle())
                     }
-                    Button("Change Address") {
-                        self.fullAddress = ""
-                    }
+                }
+                .navigationBarTitle("Your Representatives")
+                .onAppear {
+                    dataModel.address = self.fullAddress
+                    dataModel.fetch()
                 }
             }
         }
+    }
 }
