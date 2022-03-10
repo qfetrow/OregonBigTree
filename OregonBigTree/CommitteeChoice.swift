@@ -57,60 +57,57 @@ class CommitteeData: ObservableObject {
 struct CommitteeChoice: View {
     @StateObject private var dataModel = CommitteeData()
     var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text("Senate Committees")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(green)) {
-                    ForEach(dataModel.SenateCommittees, id: \.self) { committee in
-                        VStack {
-                            NavigationLink {
-                                MeasureListView(committeeCode: committee.CommitteeCode, committeeString: committee.CommitteeName)
-                            } label: {
-                                Text(committee.CommitteeName)
-                                    .padding(3)
-                                    .font(.headline)
-                            }
+        List {
+            Section(header: Text("Senate Committees")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(green)) {
+                ForEach(dataModel.SenateCommittees, id: \.self) { committee in
+                    VStack {
+                        NavigationLink {
+                            MeasureListView(committeeCode: committee.CommitteeCode, committeeString: committee.CommitteeName)
+                        } label: {
+                            Text(committee.CommitteeName)
+                                .padding(3)
+                                .font(.headline)
                         }
                     }
-                }.textCase(nil)
-                
-                Section(header: Text("House Committees")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(blue)) {
-                    ForEach(dataModel.HouseCommittees, id: \.self) { committee in
-                        VStack {
-                            NavigationLink {
-                                MeasureListView(committeeCode: committee.CommitteeCode, committeeString: committee.CommitteeName)
-                            } label: {
-                                Text(committee.CommitteeName)
-                                    .padding(3)
-                                    .font(.headline)
-                            }
+                }
+            }.textCase(nil)
+            
+            Section(header: Text("House Committees")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(blue)) {
+                ForEach(dataModel.HouseCommittees, id: \.self) { committee in
+                    VStack {
+                        NavigationLink {
+                            MeasureListView(committeeCode: committee.CommitteeCode, committeeString: committee.CommitteeName)
+                        } label: {
+                            Text(committee.CommitteeName)
+                                .padding(3)
+                                .font(.headline)
                         }
                     }
-                }.textCase(nil)
-                Section(header: Text("Joint Committees")
-                            .font(.title2)
-                            .bold()
-                            .foregroundColor(red)) {
-                    ForEach(dataModel.JointCommittees, id: \.self) { committee in
-                        VStack {
-                            NavigationLink {
-                                MeasureListView(committeeCode: committee.CommitteeCode, committeeString: committee.CommitteeName)
-                            } label: {
-                                Text(committee.CommitteeName)
-                                    .padding(3)
-                                    .font(.headline)
-                            }
+                }
+            }.textCase(nil)
+            Section(header: Text("Joint Committees")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(red)) {
+                ForEach(dataModel.JointCommittees, id: \.self) { committee in
+                    VStack {
+                        NavigationLink {
+                            MeasureListView(committeeCode: committee.CommitteeCode, committeeString: committee.CommitteeName)
+                        } label: {
+                            Text(committee.CommitteeName)
+                                .padding(3)
+                                .font(.headline)
                         }
                     }
-                }.textCase(nil)
-            }.listStyle(GroupedListStyle())
-                .navigationBarHidden(true)
-        }
+                }
+            }.textCase(nil)
+        }.listStyle(GroupedListStyle())
         .onAppear {
             if (dataModel.dataRead == false) {
                 dataModel.fetch()

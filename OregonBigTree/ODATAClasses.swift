@@ -10,6 +10,14 @@ import UIKit
 // OData is strange because it returns a .json object with {[metadata]:[link], [value][REQUESTED INFORMATION]}
 // So this parses the returned object to only get the needed information
 
+struct InitialCommitteeItem: Codable {
+    let value: [CommitteeAgendaItem]
+}
+
+struct InitialCommitteeMeeting: Codable {
+    let value: [CommitteeMeeting]
+}
+
 struct InitialODATA: Codable {
     let value: [Measure]
 }
@@ -63,7 +71,7 @@ struct Measure: Hashable, Codable {
     let CurrentVersion: String?
     let RelatingTo: String
     let CurrentLocation: String
-    let CurrentCommitteeCode: String
+    let CurrentCommitteeCode: String?
     let FiscalImpact: String?
     let RevenueImpact: String?
     let FiscalAnalyst: String?
@@ -94,4 +102,24 @@ struct FloorSessionAgendaItem: Hashable, Codable {
     let Chamber: String
     let OrderOfBusiness: String
     let CreatedDate: String
+}
+
+struct CommitteeMeeting: Hashable, Codable {
+    let SessionKey: String
+    let CommitteeCode: String
+    let MeetingDate: String
+    let MeetingStatusCode: String
+    let Location: String
+    let AgendaURL: String?
+}
+
+struct CommitteeAgendaItem: Hashable, Codable {
+    let SessionKey: String
+    let CommitteeCode: String?
+    let MeasurePrefix: String?
+    let MeasureNumber: Int?
+    let MeetingDate: String
+    let MeetingType: String?
+    let Action: String?
+    let Comments: String?
 }

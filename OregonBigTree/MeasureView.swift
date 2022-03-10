@@ -9,6 +9,47 @@ import MessageUI
 import SwiftUI
 import Foundation
 
+class MeasureGetter: ObservableObject {
+    // This reads all measure data from the api into measure objects
+    @Published var dataRead: Bool = false
+    @Published var measureprefix: String
+    @Published var measurenumber: Int
+    @Published var measures: [Measure] = []
+    @Published var measure: Measure? = nil
+    
+    init(mprefix: String, measureNumber: Int) {
+        self.measureprefix = mprefix
+        self.measurenumber = measureNumber
+    }
+    
+    func fetch() {
+        // This URL is super complicated, but it's calling '$filter' to request only legislators that are serving
+        // in the current session
+        guard let url = URL(string: "https://api.oregonlegislature.gov/odata/odataservice.svc/Measures?$format=json&$filter=MeasurePrefix%20eq%20%27\(measureprefix)%27%20and%20MeasureNumber%20eq%20\(measurenumber)&$orderby=CreatedDate%20desc&$top=1") else {
+                return
+            }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _,
+            error in
+            guard let data = data, error == nil else {
+                return // no data
+            }
+
+            do {
+                let initial = try JSONDecoder().decode(InitialODATA.self, from: data) // fills 'legislators' with data
+                DispatchQueue.main.async {
+                    self?.dataRead = true
+                    self?.measures = [initial.value[0]]
+                }
+            }
+            catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+}
+
 class MeasureDocumentData: ObservableObject {
     // This reads all measure data from the api into measure objects
     @Published var sessionkey: String
@@ -89,7 +130,7 @@ struct historyLabel: View {
     var body: some View {
         HStack {
             Image(systemName: "clock")
-            Text("Measure History")
+            Text("Measure Actions")
         }
         .padding(3)
     }
@@ -253,6 +294,36 @@ struct SingleMeasureView: View {
             }.padding(.leading, 4)
         }.padding(3)
     }
+}
+
+struct SingleFromPrefixNumber: View {
+    @StateObject private var dataModel: MeasureGetter
+    init(mnumber: Int, mprefix: String) {
+        _dataModel = StateObject(wrappedValue: MeasureGetter(mprefix: mprefix, measureNumber: mnumber))
+    }
+    var body: some View {
+        VStack {
+            if (dataModel.measures != []) {
+                let measure = dataModel.measures[0]
+                VStack {
+                    NavigationLink {
+                        ExpandedMeasureView(measure: measure)
+                    } label: {
+                        SingleMeasureView(measure: measure)
+                    }
+                }
+            }
+            
+        }
+        .onAppear {
+            if (dataModel.dataRead) {
+
+            } else {
+                dataModel.fetch()
+            }
+        }
+    }
+    
 }
 
 struct MeasureListView: View {

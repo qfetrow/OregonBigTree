@@ -15,13 +15,13 @@ struct ViewControl: View {
                 Image(systemName: "person.circle")
                 Text("Your Reps")
             }
-            CommitteeChoice().tabItem() {
+            MeasureSelect().tabItem() {
                 Image(systemName: "doc.plaintext")
                 Text("Measures")
             }
-            FloorView().tabItem() {
-                Image(systemName: "calendar")
-                Text("Votes Today")
+            CommitteeMeetingView().tabItem() {
+                Image(systemName: "calendar.badge.clock")
+                Text("Meetings")
             }
         }
     }

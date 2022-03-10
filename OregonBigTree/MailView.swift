@@ -88,12 +88,15 @@ struct MailSetUp: View {
             Button("Submit Email") {
                 self.isShowingMailView.toggle()
             }
+            .padding(4)
+            .buttonStyle(RoundedRectangleButtonStyle())
             .disabled(!MFMailComposeViewController.canSendMail())
             .sheet(isPresented: $isShowingMailView) {
                 let subjected = "Thoughts on \(self.prefix)\(self.measurenumber)"
-                let message = "\(legid),<br /><br /> I am a constituent of your district writing to indicate that I \(selectedposition.lowercased()) \(prefix) \(measurenumber), \(relatingto)<br /><br />\(reasoning)<br /><br />Sincerely,<br /><br />\(firstname) \(lastname)<br />\(phone)<br />\(address.withReplacedCharacters("%20", by: " "))"
-                MailView(result: self.$result, recipient: recipiented, subject: subjected, body: message)
+                let message = "\(legid),\n\n I am a constituent of your district writing to indicate that I \(selectedposition.lowercased()) \(prefix) \(measurenumber), \(relatingto)\n\n\(reasoning)\n\nSincerely,\n\n\(firstname) \(lastname)\n\(phone)\n\(address.withReplacedCharacters("%20", by: " "))"
+                MailView(result: self.$result, recipient: recipiented, subject: subjected, body: message.withReplacedCharacters("\n", by: "<br/>"))
             }
+            Spacer()
         }
     }
 }

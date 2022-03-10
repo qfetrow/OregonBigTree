@@ -10,9 +10,11 @@ import SwiftUI
 
 class MeasureHistoryData: ObservableObject {
     // This reads all measure data from the api into measure objects
+    @Published var dataRead: Bool = false
     @Published var sessionkey: String
     @Published var measurenumber: Int
     @Published var measureHists: [MeasureHistoryAction] = [] // Update each time the legislator data is updated
+    @Published var measureScheds: [MeasureHistoryAction] = [] // Update each time the legislator data is updated
     
     init(sessionKey: String, measureNumber: Int) {
         self.sessionkey = sessionKey
@@ -35,7 +37,13 @@ class MeasureHistoryData: ObservableObject {
             do {
                 let initial = try JSONDecoder().decode(InitialMeasureHistory.self, from: data) // fills 'legislators' with data
                 DispatchQueue.main.async {
-                    self?.measureHists = initial.value
+                    for event in initial.value {
+                        if event.ActionText.lowercased().contains("scheduled") {
+                            self?.measureScheds.insert(event, at: 0)
+                        } else {
+                            self?.measureHists.append(event)
+                        }
+                    }
                 }
             }
             catch {
@@ -54,49 +62,75 @@ struct MeasureHistoryView: View {
 
     var body: some View {
         List{
-            ForEach(dataModel.measureHists, id: \.self) { action in
-                HStack {
-                    Image(systemName: timelineIconGenerator(for: action.ActionText))
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 20, height: 20)
+            Section(header: Text("Previous Actions")) {
+                ForEach(dataModel.measureHists, id: \.self) { action in
+                    HStack {
+                        Image(systemName: timelineIconGenerator(for: action.ActionText))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 20, height: 20)
 
-                    VStack (alignment: .leading) {
-                        Text(action.ActionDate.convertDate())
-                            .bold()
-                        Text(action.ActionText)
-                    }.padding(4)
+                        VStack (alignment: .leading) {
+                            Text(action.ActionDate.convertDate())
+                                .bold()
+                            Text(action.ActionText)
+                        }.padding(4)
+                    }
                 }
+            }
+            Section(header: Text("Scheduled Actions")) {
+                ForEach(dataModel.measureScheds, id: \.self) { action in
+                    HStack {
+                        Image(systemName: timelineIconGenerator(for: action.ActionText))
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 20, height: 20)
+
+                        VStack (alignment: .leading) {
+                            Text(action.ActionDate.convertDate())
+                                .bold()
+                            Text(action.ActionText)
+                        }.padding(4)
+                    }
+                }
+
             }
         }
         .listStyle(.plain)
         .onAppear {
-            dataModel.fetch()
+            if dataModel.dataRead == false {
+                dataModel.fetch()
+            }
         }
     }
 }
 
-func timelineIconGenerator(for identifier: String) -> String {
+func timelineIconGenerator(for identifierinit: String) -> String {
+    let identifier = identifierinit.lowercased()
     switch identifier {
-    case _ where identifier.contains("Passed"):
+    case _ where identifier.contains("passed"):
         return "hand.thumbsup"
     case _ where identifier.contains("failed"):
         return "hand.thumbsdown"
-    case _ where identifier.contains("Referred"):
-        if identifier.contains("First") || identifier.contains("Introduction"){
+    case _ where identifier.contains("referred"):
+        if identifier.contains("first") || identifier.contains("introduction"){
             return "1.circle"
         }
         return "arrowshape.turn.up.left"
-    case _ where identifier.contains("Second"):
+    case _ where identifier.contains("informational"):
+        return "info.circle"
+    case _ where identifier.contains("in committee"):
+        return "square.and.arrow.down"
+    case _ where identifier.contains("second"):
            return "2.circle"
     case _ where identifier.contains("signed"):
         return "signature"
-    case _ where identifier.contains("Public"):
+    case _ where identifier.contains("public"):
         return "figure.wave.circle"
-    case _ where identifier.contains("Work"):
+    case _ where identifier.contains("work"):
         return "hammer.circle"
-    case _ where identifier.contains("Recommendation"):
+    case _ where identifier.contains("recommendation"):
         return "cross"
-    default: return "circle.fillloko"
+    default: return "circle"
     }
 }

@@ -19,6 +19,8 @@
 		FF83B8C527A2196E006DFFF2 /* ViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B8C427A2196E006DFFF2 /* ViewControl.swift */; };
 		FF83B8C727A315AD006DFFF2 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B8C627A315AD006DFFF2 /* MeasureView.swift */; };
 		FF83B8C927A45F6C006DFFF2 /* MiscStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B8C827A45F6C006DFFF2 /* MiscStyles.swift */; };
+		FFA9E6E527CEA7C4003E4DB2 /* CommitteeMeeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9E6E427CEA7C4003E4DB2 /* CommitteeMeeting.swift */; };
+		FFA9E6E727D13B65003E4DB2 /* MeasureViewSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA9E6E627D13B65003E4DB2 /* MeasureViewSelect.swift */; };
 		FFE321FC27B49B1500BB1BFF /* MeasureHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE321FB27B49B1500BB1BFF /* MeasureHistory.swift */; };
 		FFF7E8ED27C038F400D8799E /* CommitteeChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF7E8EC27C038F400D8799E /* CommitteeChoice.swift */; };
 		FFF7E8EF27C5882A00D8799E /* FloorAgenda.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF7E8EE27C5882A00D8799E /* FloorAgenda.swift */; };
@@ -58,6 +60,8 @@
 		FF83B8C427A2196E006DFFF2 /* ViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControl.swift; sourceTree = "<group>"; };
 		FF83B8C627A315AD006DFFF2 /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
 		FF83B8C827A45F6C006DFFF2 /* MiscStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiscStyles.swift; sourceTree = "<group>"; };
+		FFA9E6E427CEA7C4003E4DB2 /* CommitteeMeeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeMeeting.swift; sourceTree = "<group>"; };
+		FFA9E6E627D13B65003E4DB2 /* MeasureViewSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureViewSelect.swift; sourceTree = "<group>"; };
 		FFE321FB27B49B1500BB1BFF /* MeasureHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureHistory.swift; sourceTree = "<group>"; };
 		FFF7E8EC27C038F400D8799E /* CommitteeChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitteeChoice.swift; sourceTree = "<group>"; };
 		FFF7E8EE27C5882A00D8799E /* FloorAgenda.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorAgenda.swift; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 		FF823FB32790CF1400EF53EB /* OregonBigTree */ = {
 			isa = PBXGroup;
 			children = (
+				FFA9E6E627D13B65003E4DB2 /* MeasureViewSelect.swift */,
+				FFA9E6E427CEA7C4003E4DB2 /* CommitteeMeeting.swift */,
 				FFF7E8F427C7685000D8799E /* MailView.swift */,
 				FFF7E8EC27C038F400D8799E /* CommitteeChoice.swift */,
 				FFF7E8EE27C5882A00D8799E /* FloorAgenda.swift */,
@@ -298,9 +304,11 @@
 				FF83B8C727A315AD006DFFF2 /* MeasureView.swift in Sources */,
 				FFF7E8F527C7685100D8799E /* MailView.swift in Sources */,
 				FF83B8C527A2196E006DFFF2 /* ViewControl.swift in Sources */,
+				FFA9E6E727D13B65003E4DB2 /* MeasureViewSelect.swift in Sources */,
 				FFE321FC27B49B1500BB1BFF /* MeasureHistory.swift in Sources */,
 				FF2C05712799DE9A006CC081 /* ODATAClasses.swift in Sources */,
 				FF61BC26279B2853002A6C9B /* RepsByAddress.swift in Sources */,
+				FFA9E6E527CEA7C4003E4DB2 /* CommitteeMeeting.swift in Sources */,
 				FF83B8C927A45F6C006DFFF2 /* MiscStyles.swift in Sources */,
 				FF823FB52790CF1400EF53EB /* OregonBigTreeApp.swift in Sources */,
 			);

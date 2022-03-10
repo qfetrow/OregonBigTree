@@ -94,6 +94,7 @@ class DataModel: ObservableObject {
     @Published var address: String = ""
     @Published var representatives: [Representative] = [] // Update each time the legislator data is updated
     @Published var offices: [Office] = []
+    @Published var invalidaddress: Bool = false
     
     func fetch() {
         // This URL is super complicated, but it's calling '$filter' to request only legislators that are serving
@@ -106,10 +107,15 @@ class DataModel: ObservableObject {
             let url = fileURL
             do {
                 let data = try? Data(contentsOf: url)
-                let initial = try JSONDecoder().decode(InitialGoogle.self, from: data!) // fills 'legislators' with data
-                DispatchQueue.main.async {
-                    self.representatives = initial.officials
-                    self.offices = initial.offices
+                if data != nil {
+                    let initial = try JSONDecoder().decode(InitialGoogle.self, from: data!) // fills 'legislators' with data
+                    DispatchQueue.main.async {
+                        self.representatives = initial.officials
+                        self.offices = initial.offices
+                    }
+                } else {
+                    self.fromGoogle()
+                    return
                 }
             } catch {
                 print("URL Problem, getting from Google")
@@ -134,7 +140,8 @@ class DataModel: ObservableObject {
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, _,
             error in
             guard let data = data, error == nil else {
-                return // no data
+                self?.invalidaddress = true
+                return
             }
             do {
                 let fm = FileManager.default
@@ -146,6 +153,7 @@ class DataModel: ObservableObject {
                 }
             }
             catch {
+                self?.invalidaddress = true
                 print(error)
             }
             do {
@@ -156,7 +164,8 @@ class DataModel: ObservableObject {
                 }
             }
             catch {
-                print(error)
+                self?.invalidaddress = true
+                self?.address = ""
             }
         }
         task.resume()
@@ -201,46 +210,65 @@ struct RepsByAddressView: View {
                 }
                 .navigationBarTitle("Your Address", displayMode: .large)
             } else {
-                VStack {
-                    List{
-                        ForEach(dataModel.offices, id: \.self) { office in
-                                if (office.name == "OR State Senator" || office.name == "OR State Representative") { // Only show senator and representative
-                                    let position = office.name
-                                    let legislator = dataModel.representatives[office.officialIndices[0]]
-                                    RepView(legislator: legislator, position: position)
-                                        .onAppear {
-                                            GlobalReps[repcounter] = RepData(name: legislator.name, party: legislator.party, email: legislator.emails?[0] ?? "", office: "")
-                                            repcounter = (repcounter + 1)%2
-                                        }
+                if (dataModel.invalidaddress == false) {
+                    VStack {
+                        List{
+                            ForEach(dataModel.offices, id: \.self) { office in
+                                    if (office.name == "OR State Senator" || office.name == "OR State Representative") { // Only show senator and representative
+                                        let position = office.name
+                                        let legislator = dataModel.representatives[office.officialIndices[0]]
+                                        RepView(legislator: legislator, position: position)
+                                            .onAppear {
+                                                GlobalReps[repcounter] = RepData(name: legislator.name, party: legislator.party, email: legislator.emails?[0] ?? "", office: "")
+                                                repcounter = (repcounter + 1)%2
+                                            }
+                                    }
+                            }
+                        }
+                        .listStyle(PlainListStyle())
+                        VStack {
+                            Button("Change Address") {
+                                do {
+                                    let nullstring = " ".data(using: .ascii)
+                                    let fm = FileManager.default
+                                    let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
+                                    if let urld = urls.first {
+                                        var fileURL = urld.appendingPathComponent("legislators")
+                                        fileURL = fileURL.appendingPathExtension("json")
+                                        try nullstring?.write(to: fileURL, options: [])
+                                    }
+                                } catch {
+                                    print("Bad news")
                                 }
+                                self.fullAddress = ""
+                            }
+                            .padding(15)
+                            .buttonStyle( RoundedRectangleButtonStyle())
                         }
                     }
-                    .listStyle(PlainListStyle())
-                    Spacer()
-                    VStack {
-                        Button("Change Address") {
-                            do {
-                                let nullstring = " ".data(using: .ascii)
-                                let fm = FileManager.default
-                                let urls = fm.urls(for: .documentDirectory, in: .userDomainMask)
-                                if let urld = urls.first {
-                                    var fileURL = urld.appendingPathComponent("legislators")
-                                    fileURL = fileURL.appendingPathExtension("json")
-                                    try nullstring?.write(to: fileURL, options: [])
-                                }
-                            } catch {
-                                print("Bad news")
-                            }
-                            self.fullAddress = ""
-                        }
-                        .padding(15)
-                        .buttonStyle( RoundedRectangleButtonStyle())
+                    .navigationBarTitle("Your Representatives")
+                    .onAppear {
+                        dataModel.address = self.fullAddress
+                        dataModel.fetch()
                     }
                 }
-                .navigationBarTitle("Your Representatives")
-                .onAppear {
-                    dataModel.address = self.fullAddress
-                    dataModel.fetch()
+                else {
+                    VStack (alignment: .leading) {
+                        Text("Oops...")
+                            .bold()
+                            .font(.largeTitle)
+                            .padding()
+                        Text("Looks Like the address you provided was invalid, please double check your information")
+                            .padding()
+                        Button("Re-enter Address") {
+                            dataModel.invalidaddress = false
+                            fullAddress = ""
+                        }
+                        .buttonStyle(RoundedRectangleButtonStyle())
+                        .padding()
+                        Spacer()
+                        Spacer()
+                    }
                 }
             }
         }

@@ -9,6 +9,7 @@ let green = Color(red:0.71, green:0.9, blue:0.74)
 let red = Color(red:1.0, green:0.79, blue:0.59)
 let blue = Color(red:0.67, green:0.6, blue:0.95)
 
+import WebKit
 import Foundation
 import SwiftUI
 struct SimpleButtonStyle: ButtonStyle {
@@ -66,10 +67,10 @@ extension String {
     }
     
     func htmlnotationConvert() -> String {
-        let new = self.withReplacedCharacters("<b>", by: "**")
-        let new2 = new.withReplacedCharacters("</b>", by: "**")
-        let new3 = new2.withReplacedCharacters("<i>", by: "_")
-        let new4 = new3.withReplacedCharacters("</i>", by: "_")
+        let new = self.withReplacedCharacters("<b>", by: "")
+        let new2 = new.withReplacedCharacters("</b>", by: "")
+        let new3 = new2.withReplacedCharacters("<i>", by: "")
+        let new4 = new3.withReplacedCharacters("</i>", by: "")
         return new4
     }
     
@@ -115,3 +116,28 @@ extension UIColor {
     }
 }
 
+extension Array where Element == FloorSessionAgendaItem {
+    func sortbydate() -> [String: [FloorSessionAgendaItem]] {
+        var newdict: [String: [FloorSessionAgendaItem]] = [String:[FloorSessionAgendaItem]]()
+        for evitem in self {
+            if newdict[evitem.ScheduleDate] == nil {
+                newdict[evitem.ScheduleDate] = [evitem]
+            } else {
+                newdict[evitem.ScheduleDate]!.append(evitem)
+            }
+        }
+        return newdict
+    }
+}
+
+struct HTMLStringView: UIViewRepresentable {
+    let htmlContent: String
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.loadHTMLString(htmlContent, baseURL: nil)
+    }
+}
