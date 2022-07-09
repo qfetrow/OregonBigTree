@@ -25,3 +25,15 @@ to show a measure summary, fiscal and revenue impacts, a timeline of all previou
 OregonBigTree provides a simple and intuitive interface to email state representatives.  Once a user discovers a measure they are passionate about,
 they can press the "email senator/representative" buttons to bring up a form where they can easily type their reasoning for opposing/supporting
 the bill.  Once they press "Submit Email", their device will pull up an preformatted message to be sent to their represenatative.  All the user has to do is press send.
+
+## 4. View upcoming meetings ( limited )
+
+The user is currently able to see the date and respective committee of all upcoming meetings.  Any meeting can be clicked on to show
+all items on the agenda, including links to measures that are the topics of public hearings and work sessions.  I'm hoping to implement
+a more intuitive calendar UI and links to the virtual public hearings in the future.
+
+# Additional Note
+
+The state senate and house are currently not in session, and the next session does not begin until next february.  For this reason
+many "current-date" variables are hardcoded to march 1st.  This is to test the functionality of the upcoming measures and meetings features.
+I plan to have this app in the app store before next legislative session begins.
