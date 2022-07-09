@@ -36,4 +36,4 @@ a more intuitive calendar UI and links to the virtual public hearings in the fut
 
 The state senate and house are currently not in session, and the next session does not begin until next february.  For this reason
 many "current-date" variables are hardcoded to march 1st.  This is to test the functionality of the upcoming measures and meetings features.
-I plan to have this app in the app store before next legislative session begins.
+I plan to have this app in the app store before the next legislative session begins.
